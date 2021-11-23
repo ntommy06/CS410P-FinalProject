@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Navbar.css';
 import { MenuItems } from './MenuItems';
 
+
 class Navbar extends Component {
   state = { active: false }
 
