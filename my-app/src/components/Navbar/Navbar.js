@@ -1,33 +1,29 @@
-import React, { Components } from 'react';
-import {
-    Nav,
-    NavLink,
-    Bars,
-    NavMenu,
-    NavBtn,
-    NavBtnLink,
-} from './Navbarelements';
+import React, { Component } from 'react';
+import './Navbar.css';
+import { MenuItems } from './MenuItems';
 
-const Navbar = () => {
-    return (
-      <>
-        <Nav>
-          <Bars />
-    
-          <NavMenu>
-            <NavLink to='/compare' activeStyle>
-              Compare
-            </NavLink>
-            <NavLink to='/performance' activeStyle>
-              Perfomance
-            </NavLink>
-            {/* Second Nav */}
-            {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
-          </NavMenu>
+class Navbar extends Component {
+  render () {
+    return(
+      <nav className="NavbarItems">
+        <h1 className="navbar-logo">FastStats</h1>
+        <div className="menu-icons">
 
-        </Nav>
-      </>
-    );
-  };
+        </div>
+        <ul>
+          {MenuItems.map((item, index) => {
+              return (
+                <li key={index}>
+                  <a className={item.cName} href={item.url}>
+                    {item.title}
+                  </a>
+                </li>
+              )
+          })}
+        </ul>
+      </nav>
+    )
+  }
+}
 
 export default Navbar;

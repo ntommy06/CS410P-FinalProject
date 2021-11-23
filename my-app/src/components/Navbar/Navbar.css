@@ -1,0 +1,14 @@
+.NavbarItems {
+    background: rgb(73, 73, 83);
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-logo {
+    color: rgb(106, 126, 252);
+    justify-self: start;
+    margin-left: 20px;
+    cursor: pointer;
+}
