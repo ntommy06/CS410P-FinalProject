@@ -28,11 +28,21 @@
     color: white;
     text-decoration: none;
     padding: 0.5rem 1rem;
-
 }
+
+
 
 .nav-links:hover {
     background-color: white;
+    color: black;
     border-radius: 5px;
     transition: all 0.2s ease-out;
+}
+
+.fa-bars {
+    color: white;
+}
+
+.menu-icon {
+    display: none;
 }
