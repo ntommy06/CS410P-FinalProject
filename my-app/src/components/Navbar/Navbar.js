@@ -4,7 +4,7 @@ import { MenuItems } from './MenuItems';
 
 
 class Navbar extends Component {
-  state = { active: false }
+  state = { clicked: false }
 
   handleClick = () => {
     this.setState({ clicked: !this.state.clicked})
