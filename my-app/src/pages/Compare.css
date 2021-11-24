@@ -1,5 +1,6 @@
-.myCompare {
+#myCompare {
     display: 'flex';
+    text-align: center;
     justify-Content: 'center';
     align-Items: 'center';
     height: '90vh';

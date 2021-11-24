@@ -40,6 +40,7 @@
     background-color: #72727c;
     border-radius: 4px;
     transition: all 0.2s ease-out;
+    margin: 0;
 }
 
 .fa-bars {
@@ -87,10 +88,10 @@
         display: table;
     }
 
-    .nav-links:hover {
+    /* .nav-links:hover {
         background-color: #494953;
         border-radius: 0;
-    }
+    } */
 
     .navbar-logo {
         position: absolute;
