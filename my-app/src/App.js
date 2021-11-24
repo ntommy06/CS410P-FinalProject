@@ -1,4 +1,3 @@
-
 import './App.css';
 import React from 'react';
 import Navbar from './components/Navbar/Navbar';
@@ -19,7 +18,6 @@ function App() {
         <Route path="/compare" element={<Compare />} />
       </Routes>
     </BrowserRouter>
-
 
   );
 }
