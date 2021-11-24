@@ -13,7 +13,12 @@ const Search = () => {
   //     getPLayerID =  () =>{
 
   // }
-  return <div className="mySearch">Search</div>;
+
+  return (
+    <div className="mySearch">
+      <h1>Search Page</h1>
+    </div>
+  );
 };
 
 export default Search;

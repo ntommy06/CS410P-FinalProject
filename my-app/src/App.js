@@ -10,26 +10,8 @@ import Performance from "./pages/Performance";
 function App() {
   return (
     <body>
-      <Search></Search>
-
-      {/* <div className="header"></div>
-      <div className="navBar_class">
-        <Navbar></Navbar>
-        <img
-          id="mjWings"
-          src="./mj_wings.jpeg"
-          alt="Backetball Player Image"
-        ></img>
-      </div>
-      <div id="container" className="mainContent">
-        <h2>FastStats Features</h2>
-      </div>
-      <div id="container" className="mainContent">
-        <h2>Developers of FastStats</h2>
-      </div>
-      <div id="footer" className="mainContent">
-        <h2>Footer</h2>
-      </div> */}
+      {/* <Search></Search> */}
+      <Home></Home>
     </body>
   );
 }
