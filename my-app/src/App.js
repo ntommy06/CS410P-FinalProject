@@ -10,7 +10,9 @@ import Performance from "./pages/Performance";
 function App() {
   return (
     <body>
-      <div className="header"></div>
+      <Search></Search>
+
+      {/* <div className="header"></div>
       <div className="navBar_class">
         <Navbar></Navbar>
         <img
@@ -19,12 +21,15 @@ function App() {
           alt="Backetball Player Image"
         ></img>
       </div>
-      <div className="mainContent">
+      <div id="container" className="mainContent">
         <h2>FastStats Features</h2>
       </div>
-      <div className="footer">
+      <div id="container" className="mainContent">
         <h2>Developers of FastStats</h2>
       </div>
+      <div id="footer" className="mainContent">
+        <h2>Footer</h2>
+      </div> */}
     </body>
   );
 }

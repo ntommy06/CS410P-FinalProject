@@ -1,12 +1,19 @@
-import React from "react";
-import './Search.css';
+import React, { Component } from "react";
+import "./Search.css";
 
 const Search = () => {
-    return (
-        <div className="mySearch">
-            <h1>Search Page</h1>
-        </div>
-    )
-}
+  // class App extends Component{
+  //     constructor(props){
+  //         super(props)
+  //         this.state={
+  //             playerName:null,
+  //             playerStats {}
+  //         }
+  //     }
+  //     getPLayerID =  () =>{
+
+  // }
+  return <div className="mySearch">Search</div>;
+};
 
 export default Search;
