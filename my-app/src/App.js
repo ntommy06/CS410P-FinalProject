@@ -14,11 +14,11 @@ function App() {
       <div className="header"></div>
       <div className="navBar_class">
         <Navbar></Navbar>
-        <img
+        {/* <img
           id="mjWings"
           src="./mj_wings.jpeg"
           alt="Backetball Player Image"
-        ></img>
+        ></img> */}
       </div>
       <div className="mainContent">
         <h2>FastStats Features</h2>
