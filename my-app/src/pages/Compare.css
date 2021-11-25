@@ -25,3 +25,14 @@
     align-items: center;
     justify-content: center;
 }
+
+.myTable {
+    display: block;
+    border: 1px solid;
+    position: relative;
+}
+
+th, td {
+    border: 1px solid red;
+    text-align: center;
+}
