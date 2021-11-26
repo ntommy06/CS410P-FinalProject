@@ -1,7 +1,7 @@
 import React, { Component, useState } from 'react';
 import './Compare.css'
 import axios from 'axios';
-import update from 'react-addons-update';
+//import update from 'react-addons-update';
 
 class Compare extends Component {
     constructor(props) {
