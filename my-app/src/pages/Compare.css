@@ -1,6 +1,44 @@
 .myCompare {
-    display: 'flex';
-    justify-Content: 'center';
-    align-Items: 'center';
-    height: '90vh';
+    display: flex;
+    text-align: center;
+    justify-Content: center;
+    align-Items: top;
+}
+
+#compare1 {
+    padding: 10px;
+    margin: 5px;
+}
+
+#compare2 {
+    padding: 10px;
+    margin: 5px;
+}
+
+#btn {
+    padding: 10px;
+    margin: -4px;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.myTable {
+    border: 1px solid;
+    border-collapse: collapse;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+
+
+
+th, td {
+    border: 1px solid black;
+    text-align: center;
 }
