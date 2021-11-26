@@ -26,7 +26,7 @@
     justify-content: center;
 }
 
-.myTable {
+table.myTable {
     border: 1px solid;
     border-collapse: collapse;
     position: relative;
@@ -35,10 +35,39 @@
     width: 50%;
 }
 
+table.mainTable {
+    border: none;
+    border-collapse: collapse;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
 
+#textName {
+    display: flex;
+    position: relative;
+}
 
-
-th, td {
+.myTable th, .myTable td {
     border: 1px solid black;
     text-align: center;
+    width: 30%;
+}
+
+.mainTable th, .mainTable td {
+    border: none;
+    text-align: center;
+    width: 50%;
+}
+
+input {
+    width: 97%;
+    text-align: center;
+    justify-content: center;
+}
+
+button {
+    width: 97%;
+    
 }

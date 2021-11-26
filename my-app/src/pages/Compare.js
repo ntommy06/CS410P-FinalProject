@@ -21,25 +21,27 @@ class Compare extends Component {
             <div className='myCompare'>
                 <h1>Search up two players you would like to compare</h1>
             </div>
-            <div className="search">
-                First Player Name
-                <input
-                    type="search"
-                    id="compare1"
-                    placeholder="Enter first and last name"
-                    name="input"
-                />
-                <button type="submit" id="btn" onClick={this.getPlayerId1}>Enter</button>
-
-                Second Player Name
-                <br />
-                <input
-                    type="search"
-                    id="compare2"
-                    placeholder="Enter first and last name"
-                    name="input"
-                />
-                <button type="submit" id="btn" onClick={this.getPlayerId2}>Enter</button>
+            <div>
+                <table className="mainTable">
+                    <tbody>
+                        <tr>
+                        <td>
+                            <h3>First Player Name</h3>
+                        </td>
+                        <td>
+                            <h3>Second Player Name</h3>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td><input id="compare1" name="input" type="search" placeholder="Enter first and last name" /> </td>
+                            <td><input id="compare2" name="input" type="search" placeholder="Enter first and last name" /> </td>
+                        </tr>
+                        <tr>
+                            <td><button id="btn" type="submit" onClick={this.getPlayerId1}>Enter</button></td>
+                            <td><button id="btn" type="submit" onClick={this.getPlayerId2}>Enter</button></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             {/* SEARCH HOW TO CREATE A TABLE NEXT TO PUT THESE ELEMENTS INTO THE TABLE FOR COMPARISON */}
 
