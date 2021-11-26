@@ -1,7 +1,7 @@
 import React, { Component, useState } from 'react';
 import './Compare.css'
 import axios from 'axios';
-import ReactTable from 'react-table';
+import update from 'react-addons-update';
 
 class Compare extends Component {
     constructor(props) {
@@ -12,6 +12,7 @@ class Compare extends Component {
             playerAvg: []
         }
     }
+
     
     render() {
         
@@ -44,7 +45,6 @@ class Compare extends Component {
 
             
             <div className="container">
-                <h1>Comparison</h1>
                 <table className="myTable">
                     <thead>
                     <tr>
@@ -63,7 +63,7 @@ class Compare extends Component {
                         {/* Team Name */}
                         <tr>
                             <td> <span id="p1Team"></span> </td>
-                            <td>Team Name</td>
+                            <td>Team Name & Position</td>
                             <td> <span id="p2Team"></span> </td>
                         </tr>
                         {/* Player Avg Stats */}
@@ -73,76 +73,75 @@ class Compare extends Component {
                             <td> <span id="fgm2"></span> </td>
                         </tr>
                         <tr>
-                            <td> <span id="fga1">Avg Stats 1</span> </td>
+                            <td> <span id="fga1"></span> </td>
                             <td>FGA</td>
-                            <td> <span id="fga2">Avg Stats 2</span> </td>
+                            <td> <span id="fga2"></span> </td>
                         </tr>
                         <tr>
-                            <td> <span id="fg_p1">Avg Stats 1</span> </td>
+                            <td> <span id="fg_pct1"></span> </td>
                             <td>FG%</td>
-                            <td> <span id="fg_p2">Avg Stats 2</span> </td>
+                            <td> <span id="fg_pct2"></span> </td>
                         </tr>
                         <tr>
-                            <td> <span id="ftm1">Avg Stats 1</span> </td>
+                            <td> <span id="ftm1"></span> </td>
                             <td>FTM</td>
-                            <td> <span id="ftm2">Avg Stats 2</span> </td>
+                            <td> <span id="ftm2"></span> </td>
                         </tr>
                         <tr>
-                            <td> <span id="fta1">Avg Stats 1</span> </td>
+                            <td> <span id="fta1"></span> </td>
                             <td>FTA</td>
-                            <td> <span id="fta2">Avg Stats 2</span> </td>
+                            <td> <span id="fta2"></span> </td>
                         </tr>
                         <tr>
-                            <td> <span id="ft_p">Avg Stats 1</span> </td>
+                            <td> <span id="ft_pct1"></span> </td>
                             <td>FT%</td>
-                            <td> <span id="ft_p2">Avg Stats 2</span> </td>
+                            <td> <span id="ft_pct2"></span> </td>
                         </tr>
                         <tr>
-                            <td> <span id="3ptm1">Avg Stats 1</span> </td>
+                            <td> <span id="fg3m1"></span> </td>
                             <td>3PTM</td>
-                            <td> <span id="3ptm2">Avg Stats 2</span> </td>
+                            <td> <span id="fg3m2"></span> </td>
                         </tr>
                         <tr>
-                            <td> <span id="3pta1">Avg Stats 1</span> </td>
+                            <td> <span id="fg3a1"></span> </td>
                             <td>3PTA</td>
-                            <td> <span id="3pta2">Avg Stats 2</span> </td>
+                            <td> <span id="fg3a2"></span> </td>
                         </tr>
                         <tr>
-                            <td> <span id="3pt_p1">Avg Stats 1</span> </td>
+                            <td> <span id="fg3_pct1"></span> </td>
                             <td>3PT%</td>
-                            <td> <span id="3pt_p2">Avg Stats 2</span> </td>
+                            <td> <span id="fg3_pct2"></span> </td>
                         </tr>
                         <tr>
-                            <td> <span id="pts1">Avg Stats 1</span> </td>
+                            <td> <span id="pts1"></span> </td>
                             <td>PTS</td>
-                            <td> <span id="pts2">Avg Stats 2</span> </td>
+                            <td> <span id="pts2"></span> </td>
                         </tr>
                         <tr>
-                            <td> <span id="reb1">Avg Stats 1</span> </td>
+                            <td> <span id="reb1"></span> </td>
                             <td>REB</td>
-                            <td> <span id="reb2">Avg Stats 2</span> </td>
+                            <td> <span id="reb2"></span> </td>
                         </tr>
                         <tr>
-                            <td> <span id="ast">Avg Stats 1</span> </td>
+                            <td> <span id="ast1"></span> </td>
                             <td>AST</td>
-                            <td> <span id="ast2">Avg Stats 2</span> </td>
+                            <td> <span id="ast2"></span> </td>
                         </tr>
                         <tr>
-                            <td> <span id="st1">Avg Stats 1</span> </td>
+                            <td> <span id="stl1"></span> </td>
                             <td>ST</td>
-                            <td> <span id="st2">Avg Stats 2</span> </td>
+                            <td> <span id="stl2"></span> </td>
                         </tr>
                         <tr>
-                            <td> <span id="blk1">Avg Stats 1</span> </td>
+                            <td> <span id="blk1"></span> </td>
                             <td>BLK</td>
-                            <td> <span id="blk2">Avg Stats 2</span> </td>
+                            <td> <span id="blk2"></span> </td>
                         </tr>
                         <tr>
-                            <td> <span id="to1">Avg Stats 1</span> </td>
+                            <td> <span id="turnover1"></span> </td>
                             <td>TO</td>
-                            <td> <span id="to2">Avg Stats 2</span> </td>
+                            <td> <span id="turnover2"></span> </td>
                         </tr>
-                        
 
                     </tbody>
                 </table>
@@ -201,17 +200,15 @@ class Compare extends Component {
             //let avgStats = res.data.data[0].ast;
             
             //GOT TO PUSH avgStats into the setState
-            this.pushStats(res.data.data)
+            this.pushStats(id, res.data.data)
+
             
             //Display to Table
-            
             if(id === 1) {
-                let fgm = this.state.playerAvg[0].fgm
-                document.getElementById("fgm1").innerHTML = fgm;
+                this.toTable(id);
             }
             if(id === 2) {
-                let fgm = this.state.playerAvg[1].fgm
-                document.getElementById("fgm2").innerHTML = fgm;
+                this.toTable(id);
             }
             
 
@@ -219,34 +216,178 @@ class Compare extends Component {
             //console.log(this.state.playerAvg[0].ast);
             //console.log(this.state.playerAvg[1].ast);
 
-            let stat = document.getElementById("fgm1");
-            let stat2 = document.getElementById("fgm2");
+            // let stat = document.getElementById("fgm1");
+            // let stat2 = document.getElementById("fgm2");
 
             //CREATE A LOOP TO GO THROUGH THE WHOLE STATS TO COMPARE
+            // for(int i = 0; i < this.state.playerAvg[0].length; i++)
+            // if(this.state.playerAvg[0].fgm >= this.state.playerAvg[1].fgm) {
+            //     stat.style.color = `green`;
+            //     stat2.style.color = `red`;
+            // } else {
+            //     stat.style.color = `red`;
+            //     stat2.style.color = `green`;
+            // }
 
-            if(this.state.playerAvg[0].fgm >= this.state.playerAvg[1].fgm) {
-                stat.style.color = `green`;
-                stat2.style.color = `red`;
-            } else {
-                stat.style.color = `red`;
-                stat2.style.color = `green`;
-            }
+            this.toStyle(id)
         }).catch(err => {
             console.log(err)
         })
     }
 
-    // componentDidMount() {
-    //     this.getPlayerId();
-    // }
+    toStyle = (id) => {
+        let statArray = [
+            'fgm',
+            'fga',
+            'fg_pct',
+            'ftm',
+            'fta',
+            'ft_pct',
+            'fg3m',
+            'fg3a',
+            'fg3_pct',
+            'pts',
+            'reb',
+            'ast',
+            'stl',
+            'blk',
+            'turnover'
+        ]
 
-    pushStats = (Avg) => {
+        let data1 =  this.state.playerAvg[0];
+        
+        let data2 = this.state.playerAvg[1];
+        
+        let stats1 = [
+            data1.fgm,
+            data1.fga,
+            data1.fg_pct,
+            data1.ftm,
+            data1.fta,
+            data1.ft_pct,
+            data1.fg3m,
+            data1.fg3a,
+            data1.fg3_pct,
+            data1.pts,
+            data1.reb,
+            data1.ast,
+            data1.stl,
+            data1.blk,
+            data1.turnover
+        ]
+
+        let stats2 = [
+            data2.fgm,
+            data2.fga,
+            data2.fg_pct,
+            data2.ftm,
+            data2.fta,
+            data2.ft_pct,
+            data2.fg3m,
+            data2.fg3a,
+            data2.fg3_pct,
+            data2.pts,
+            data2.reb,
+            data2.ast,
+            data2.stl,
+            data2.blk,
+            data2.turnover
+        ]
+
+
+        for(let i = 0; i < statArray.length; i++) {
+            let statClass = document.getElementById(statArray[i]+'1');
+            let statClass2 = document.getElementById(statArray[i]+'2');
+            if(stats1[i] >= stats2[i]) {
+                statClass.style.color = `green`;
+                statClass2.style.color = `red`;
+            } else {
+                statClass.style.color = `red`;
+                statClass2.style.color = `green`;
+            }
+        }
+    }
+
+    toTable = (id) => {
+        let statArray = [
+            'fgm',
+            'fga',
+            'fg_pct',
+            'ftm',
+            'fta',
+            'ft_pct',
+            'fg3m',
+            'fg3a',
+            'fg3_pct',
+            'pts',
+            'reb',
+            'ast',
+            'stl',
+            'blk',
+            'turnover'
+        ]
+
+        let data;
+        if(id === 1) {
+            data = this.state.playerAvg[0];
+        } else {
+            data = this.state.playerAvg[1];
+        }
+
+
+        let stats = [
+            data.fgm,
+            data.fga,
+            data.fg_pct,
+            data.ftm,
+            data.fta,
+            data.ft_pct,
+            data.fg3m,
+            data.fg3a,
+            data.fg3_pct,
+            data.pts,
+            data.reb,
+            data.ast,
+            data.stl,
+            data.blk,
+            data.turnover
+        ]
+        
+        //Display to Table
+        if(id === 1) {
+            for(let i = 0; i < statArray.length; i++) {
+                let statName = statArray[i];
+                let stat = stats[i]
+
+                document.getElementById(statName+"1").innerHTML = stat;
+            }
+        }
+        if(id === 2) {
+            for(let i = 0; i < statArray.length; i++) {
+                let statName = statArray[i];
+                let stat = stats[i];
+
+                document.getElementById(statName+"2").innerHTML = stat;
+            }
+        }
+
+
+    }
+
+    pushStats = (id, Avg) => {
         //if populated - clear array
         //console.log("PUSH STATS: ")
         //console.log(Avg)
 
+        console.log(this.state.playerAvg.length)
+        
         if(this.state.playerAvg.length === 2) {
+
+            //check which index it is
             this.setState({playerAvg: []});
+
+            // console.log("AFTER FULL:")
+            // console.log(this.state.playerAvg)
         }
 
         this.setState(state => {
@@ -256,10 +397,9 @@ class Compare extends Component {
                 playerAvg,
             }
         })
-
         console.log("state.PlayerAvg:")
         console.log(this.state.playerAvg)
-
+        
     }
 
     pushPlayer = (name) => {
