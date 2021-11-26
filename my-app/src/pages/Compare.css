@@ -27,12 +27,18 @@
 }
 
 .myTable {
-    display: block;
     border: 1px solid;
+    border-collapse: collapse;
     position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
 
+
+
+
 th, td {
-    border: 1px solid red;
+    border: 1px solid black;
     text-align: center;
 }
