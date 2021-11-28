@@ -3,8 +3,7 @@ import "./Navbar.css";
 import { MenuItems } from "./MenuItems";
 
 class Navbar extends Component {
-
-  state = { active: false }
+  state = { active: false };
 
   handleClick = () => {
     this.setState({ clicked: !this.state.clicked });
