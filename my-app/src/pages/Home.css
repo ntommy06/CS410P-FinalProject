@@ -42,8 +42,6 @@ a.footerLink {
   height: 30rem;
   margin: 0 5px 0 0;
   padding: 0 auto 0 auto;
-  /* margin-right: 0px;
-    margin-left: 0px; */
 }
 
 #headFeature {
@@ -59,7 +57,7 @@ a.footerLink {
 .container {
   display: flex;
   margin: 20px auto 10px auto;
-  width: 90%;
+  width: 70%;
   height: 500px;
   border-radius: 10px;
   background-color: #494953;
@@ -69,6 +67,10 @@ a.footerLink {
 #foot.container h2 {
   padding: 20px;
   margin: 0;
+}
+
+#devs.container h2 {
+  color: #edf2f6;
 }
 
 .header {

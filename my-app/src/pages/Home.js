@@ -27,9 +27,11 @@ const Home = () => {
       </div> */}
       <div id="devs" className="container">
         <h2>Developers of FastStats</h2>
+        <div>Tommy Nguyen</div>
+        <div>Cesar Ochoa-Navarro</div>
       </div>
       <footer id="footer" className="smallContainer">
-        <a className="footerLink" href="">
+        <a className="footerLink" href="http://localhost:3000">
           Website
         </a>
         <a
@@ -39,7 +41,9 @@ const Home = () => {
           Github
         </a>
         <p id="copright"></p>
-        <p id="copyright">© 2021 Cesar Ochoa-Navarro & Tommy Nguyen.</p>
+        <p id="copyright">
+          © 2021 Cesar Ochoa-Navarro & Tommy Nguyen PSU_CS410P Final.
+        </p>
       </footer>
     </body>
   );
