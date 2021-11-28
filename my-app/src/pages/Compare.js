@@ -21,44 +21,46 @@ class Compare extends Component {
             <div className='myCompare'>
                 <h1>Search up two players you would like to compare</h1>
             </div>
-            <div className="search">
-                First Player Name
-                <input
-                    type="search"
-                    id="compare1"
-                    placeholder="Enter first and last name"
-                    name="input"
-                />
-                <button type="submit" id="btn" onClick={this.getPlayerId1}>Enter</button>
-
-                Second Player Name
-                <br />
-                <input
-                    type="search"
-                    id="compare2"
-                    placeholder="Enter first and last name"
-                    name="input"
-                />
-                <button type="submit" id="btn" onClick={this.getPlayerId2}>Enter</button>
+            <div>
+                <table className="mainTable">
+                    <tbody>
+                        <tr>
+                        <td>
+                            <h3>First Player Name</h3>
+                        </td>
+                        <td>
+                            <h3>Second Player Name</h3>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td><input id="compare1" name="input" type="search" placeholder="Enter first and last name" /> </td>
+                            <td><input id="compare2" name="input" type="search" placeholder="Enter first and last name" /> </td>
+                        </tr>
+                        <tr>
+                            <td><button id="btn" type="submit" onClick={this.getPlayerId1}>Enter</button></td>
+                            <td><button id="btn" type="submit" onClick={this.getPlayerId2}>Enter</button></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             {/* SEARCH HOW TO CREATE A TABLE NEXT TO PUT THESE ELEMENTS INTO THE TABLE FOR COMPARISON */}
 
             
-            <div className="container">
+            <div className="compareContainer">
                 <table className="myTable">
                     <thead>
                     <tr>
                         <th> <span id="p1Name"></span> </th>
-                        <th>Name</th>
+                        <th>Player Name</th>
                         <th> <span id="p2Name"></span> </th>
                     </tr>
                     </thead>
                     <tbody>
                          {/* Image */}
                         <tr>
-                            <td>  </td>
-                            <td>Image</td>
-                            <td> </td>
+                            <td> <img id="img1" alt="Player 1"></img>  </td>
+                            <td>Headshot</td>
+                            <td> <img id="img2" alt="Player 2"></img> </td>
                         </tr>
                         {/* Team Name */}
                         <tr>
@@ -156,10 +158,14 @@ class Compare extends Component {
         
         axios.get(`https://www.balldontlie.io/api/v1/players?search=${player1}`)
         .then(async res => {
-            console.log(res.data.data)
+            //console.log(res.data.data)
             let realName = res.data.data[0].first_name + " " + res.data.data[0].last_name;
             let team = res.data.data[0].team.full_name;
             let position = res.data.data[0].position;
+
+            //call function to get image from other api
+            this.getImage(1, res.data.data[0].first_name, res.data.data[0].last_name)
+
             document.getElementById("p1Name").innerHTML = realName;
             document.getElementById("p1Team").innerHTML = team + " - " + position;
 
@@ -175,10 +181,14 @@ class Compare extends Component {
         
         axios.get(`https://www.balldontlie.io/api/v1/players?search=${player2}`)
         .then(async res => {
-            console.log(res.data.data)
+            //console.log(res.data.data)
             let realName = res.data.data[0].first_name + " " + res.data.data[0].last_name;
             let team = res.data.data[0].team.full_name;
             let position = res.data.data[0].position;
+
+            //call function to get image from other api
+            this.getImage(2, res.data.data[0].first_name, res.data.data[0].last_name)
+
             document.getElementById("p2Name").innerHTML = realName;
             document.getElementById("p2Team").innerHTML = team + " - " + position;
 
@@ -190,15 +200,30 @@ class Compare extends Component {
         })
     }
 
+    getImage = (id, firstName, lastname) => {
+        
+        //WORKS but for 2018 season
+        axios.get(`https://nba-players.herokuapp.com/players/${lastname}/${firstName}`)
+        .then(async res => {
+
+            if(id === 1) {
+                let image = document.getElementById("img1");
+                image.src = res.config.url;
+            }
+            if(id === 2) {
+                let image = document.getElementById("img2");
+                image.src = res.config.url;
+            }
+
+        })
+    }
 
     getAvgStats = (id, playerid) => {
-        console.log(playerid);
+        //console.log(playerid);
         axios.get(`https://www.balldontlie.io/api/v1/season_averages?player_ids[]=${playerid}`)
         .then(async res => {
             //console.log(res.data.data)
 
-            //let avgStats = res.data.data[0].ast;
-            
             //GOT TO PUSH avgStats into the setState
             this.pushStats(id, res.data.data)
 
@@ -210,30 +235,13 @@ class Compare extends Component {
             if(id === 2) {
                 this.toTable(id);
             }
-            
-
-            //Styling if one greater than other
-            //console.log(this.state.playerAvg[0].ast);
-            //console.log(this.state.playerAvg[1].ast);
-
-            // let stat = document.getElementById("fgm1");
-            // let stat2 = document.getElementById("fgm2");
-
-            //CREATE A LOOP TO GO THROUGH THE WHOLE STATS TO COMPARE
-            // for(int i = 0; i < this.state.playerAvg[0].length; i++)
-            // if(this.state.playerAvg[0].fgm >= this.state.playerAvg[1].fgm) {
-            //     stat.style.color = `green`;
-            //     stat2.style.color = `red`;
-            // } else {
-            //     stat.style.color = `red`;
-            //     stat2.style.color = `green`;
-            // }
-
             this.toStyle(id)
+
         }).catch(err => {
             console.log(err)
         })
     }
+
 
     toStyle = (id) => {
         let statArray = [
@@ -308,6 +316,7 @@ class Compare extends Component {
         }
     }
 
+
     toTable = (id) => {
         let statArray = [
             'fgm',
@@ -379,7 +388,7 @@ class Compare extends Component {
         //console.log("PUSH STATS: ")
         //console.log(Avg)
 
-        console.log(this.state.playerAvg.length)
+        //console.log(this.state.playerAvg.length)
         
         if(this.state.playerAvg.length === 2) {
 
@@ -397,8 +406,8 @@ class Compare extends Component {
                 playerAvg,
             }
         })
-        console.log("state.PlayerAvg:")
-        console.log(this.state.playerAvg)
+        //console.log("state.PlayerAvg:")
+        //console.log(this.state.playerAvg)
         
     }
 

@@ -39,7 +39,7 @@ const Home = () => {
           Github
         </a>
         <p id="copright"></p>
-        <p id="copyright">© 2021 Cesar Ochoa-Navarro & Tommy Nguyen.</p>
+        <p id="copyright">© 2021 Cesar Ochoa Navarro & Tommy Nguyen.</p>
       </footer>
     </body>
   );
