@@ -1,9 +1,18 @@
+* {
+    font-family: 'Merriweather', serif;
+}
+
 .myCompare {
     display: flex;
     text-align: center;
     justify-Content: center;
     align-Items: top;
 }
+
+.compareContainer {
+    margin: 25px 0;
+}
+
 
 #compare1 {
     padding: 10px;
@@ -32,8 +41,23 @@ table.myTable {
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    width: 100%;
+
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
+
+table.myTable thead tr {
+    background-color: #494953;
+    color: white;
+}   
+
+table.myTable tbody tr:nth-of-type(even) {
+    background-color: white;
+}   
+table.myTable tbody tr:nth-of-type(odd) {
+    background-color: #f3f3f3e0;
+}
+
 
 table.mainTable {
     border: none;
@@ -52,7 +76,9 @@ table.mainTable {
 .myTable th, .myTable td {
     border: 1px solid black;
     text-align: center;
-    width: 30%;
+    width: auto;
+    padding: 12px 15px;
+    font-weight: bold;
 }
 
 .mainTable th, .mainTable td {
