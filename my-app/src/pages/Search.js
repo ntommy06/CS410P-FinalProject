@@ -14,7 +14,7 @@ class Search extends Component {
 
   render() {
     return (
-      <div>
+      <div id="body">
         <div className="mySearch">
           <h1>Search for an NBA player</h1>
         </div>
@@ -38,7 +38,7 @@ class Search extends Component {
                 <td id="imageId" colSpan="2"><img id="img" alt="Player Not Found" width="330.7px"></img></td>
               </tr>
               <tr>
-                <td><b>Name:</b></td>
+                <td><b>Name: </b></td>
                 <td><span id="pName"></span></td>
               </tr>
               <tr>
