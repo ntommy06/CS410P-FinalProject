@@ -45,3 +45,7 @@ thead td, tbody td{
 #imageId{
     border-top: none;
 }
+
+tbody #statHead{
+    text-align: center;
+}
