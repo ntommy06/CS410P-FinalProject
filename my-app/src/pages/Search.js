@@ -20,7 +20,7 @@ class Search extends Component {
         </div>
         <div>
           <table className="searchTable">
-            <tbody>
+            <tbody id="searchBar">
               <tr>
                 <td><input id = "userInputP" name="input" type="search" placeholder="Enter in player's name"/></td>
                 <td><button id="btn" type="submit" onClick={this.getplayerID}>Submit</button></td>
@@ -42,7 +42,7 @@ class Search extends Component {
                 <td><span id="pName"></span></td>
               </tr>
               <tr>
-                <td><b>Position:</b></td>
+                <td><b>Position: </b></td>
                 <td><span id = "pPos"></span></td>
               </tr>
               <tr>

@@ -11,7 +11,7 @@
 .playerTable{
     display: flex;
     justify-content: center;
-    background-color: #edf2f6;
+    background-color: #494953;
     margin: 10px auto 0 auto;
     width: 32rem;
     border: black solid 2px;
@@ -23,14 +23,15 @@ img{
 }
 
 thead{
-    background-color: #EDF2F6;
+    color: #EDF2F6;;
     margin: 0 0 0 auto;
     font-size: x-large;
 }
 
-tbody{
-    margin: 0 auto 0 auto;
-    padding: 0 0 0 0;
+tbody:not(#searchBar){
+    background-color: #EDF2F6;
+    margin: 0 0 0 auto;
+    padding: 0 1rem 0 1rem;
 }
 
 .playerTable > tbody{
