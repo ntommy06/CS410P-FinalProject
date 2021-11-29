@@ -10,7 +10,7 @@
 
 .playerTable{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     background-color: #494953;
     margin: 10px auto 0 auto;
     width: 32rem;
@@ -23,20 +23,21 @@ img{
 }
 
 thead{
-    color: #EDF2F6;;
-    margin: 0 0 0 auto;
+    display: flex;
+    margin: 0 auto 0 auto;
+    flex-direction: column;
+    color: #EDF2F6;
     font-size: x-large;
 }
 
-tbody:not(#searchBar){
+#statBody td{
+    text-align: center;
     background-color: #EDF2F6;
-    margin: 0 0 0 auto;
-    padding: 0 1rem 0 1rem;
+    padding: 4px
 }
 
 .playerTable > tbody{
     border-left: black solid 2px;
-    padding-left: 1.2rem;
 }
 
 thead td, tbody td{
@@ -45,8 +46,4 @@ thead td, tbody td{
 
 #imageId{
     border-top: none;
-}
-
-tbody #statHead{
-    text-align: center;
 }

@@ -35,7 +35,7 @@ class Search extends Component {
           <table className="playerTable" cellSpacing="0">
             <thead>
               <tr>
-                <td id="imageId" colSpan="2"><img id="img" alt="Not Found" width="330.7px"></img></td>
+                <td id="imageId" colSpan="2"><img id="img" alt="Player Not Found" width="330.7px"></img></td>
               </tr>
               <tr>
                 <td><b>Name:</b></td>
@@ -58,7 +58,7 @@ class Search extends Component {
                 <td><span id="pWeight"></span></td>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="statBody">
               <tr>
                 <td id="statHead" colSpan="2">
                   <b>Stats</b>
