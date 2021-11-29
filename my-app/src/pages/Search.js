@@ -12,7 +12,6 @@ class Search extends Component {
       }
   }
 
-
   render() {
     return (
       <div>
@@ -33,82 +32,92 @@ class Search extends Component {
         </div>
 
         <div className="playerContainer">
-          <table className="playerTable">
+          <table className="playerTable" cellSpacing="0">
             <thead>
               <tr>
-                <td><img id="img" alt="Player Searched"></img></td>
+                <td id="imageId"colSpan="2"><img id="img" alt="Not Found"></img></td>
               </tr>
               <tr>
-                {/* <th>Name</th>
-                <th><span id="pName"></span></th> */}
-                <th>
-                  Name : <span><td id="pTeam"></td></span>
-                </th> 
+                <td><b>Name:</b></td>
+                <td><span id="pName"></span></td>
               </tr>
-            </thead>
-            <tbody>
               <tr>
-                <td>Team and Position</td>
+                <td><b>Position:</b></td>
+                <td><span id = "pPos"></span></td>
+              </tr>
+              <tr>
+                <td><b>Team:</b></td>
                 <td><span id = "pTeam"></span></td>
               </tr>
               <tr>
-                <td>FGM</td>
+                <td><b>Height:</b></td>
+                <td><span id = "pHeight"></span></td>
+              </tr>
+              <tr>
+                <td><b>Weight:</b></td>
+                <td><span id="pWeight"></span></td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><b>Stats</b></tr>
+              <tr>
+                <td>FGM:</td>
                 <td><span id="fgm1"></span></td>
               </tr>
               <tr>
-                <td>FGA</td>
+                <td>FGA:</td>
                 <td> <span id="fga1"></span> </td>
               </tr>
               <tr>
-                <td>FG%</td>
+                <td>FG%:</td>
                 <td> <span id="fg_pct1"></span> </td>
               </tr>
               <tr>
-                <td>FTM</td>
+                <td>FTM:</td>
                 <td> <span id="ftm1"></span> </td>
               </tr>
               <tr>
-                <td>FTA</td>
+                <td>FTA:</td>
                 <td> <span id="fta1"></span> </td>
               </tr>
               <tr>
-                <td>FT%</td>
+                <td>FT%:</td>
                 <td> <span id="ft_pct1"></span> </td>
               </tr>
               <tr>
-                <td>3PTM</td>
+                <td>3PTM:</td>
                 <td> <span id="fg3m1"></span> </td>
               </tr>
               <tr>
-                <td>3PTA</td>
+                <td>3PTA:</td>
                 <td> <span id="fg3a1"></span> </td>
               </tr>
               <tr>
-                <td>3PT%</td>
+                <td>3PT%:</td>
                 <td> <span id="fg3_pct1"></span> </td>
               </tr>
               <tr>
-                <td>PTS</td>
+                <td>PTS:</td>
                 <td> <span id="pts1"></span> </td>
               </tr>
               <tr>
-                <td>REB</td>
+                <td>REB:</td>
                 <td> <span id="reb1"></span> </td>
               </tr>
               <tr>
-                <td>AST</td>
+                <td>AST:</td>
                 <td> <span id="ast1"></span> </td>
               </tr>
               <tr>
-                <td>ST</td>
+                <td>ST:</td>
                 <td> <span id="stl1"></span> </td>
               </tr>
               <tr>
-                <td>BLK</td>
+                <td>BLK:</td>
                 <td> <span id="blk1"></span> </td>
               </tr>
               <tr>
-                <td>TO</td>
+                <td>TO:</td>
                 <td> <span id="turnover1"></span> </td>
               </tr>
             </tbody>
@@ -124,13 +133,20 @@ class Search extends Component {
     axios.get(`https://www.balldontlie.io/api/v1/players?search=${playerObj}`)
     .then(async res => {
       let playerFullName = res.data.data[0].first_name + " " + res.data.data[0].last_name;
-      let playerTeam = res.data.data[0].full_name;
+      let playerTeam = res.data.data[0].team.full_name;
       let position = res.data.data[0].position;
+      let height = res.data.data[0].height_feet + "'" + res.data.data[0].height_feet +'"'
+      let weight = res.data.data[0].weight_pounds + " lbs";
+      // let 
 
-      this.getProfileImg(1, res.data.data[0].first_name, res.data.data[0].last_name)
+      this.getProfileImg(1, res.data.data[0].first_name, res.data.data[0].last_name);
 
       document.getElementById("pName").innerHTML = playerFullName;
-      document.getElementById("pTeam").innerHTML = playerTeam + " | " + position;
+      document.getElementById("pPos").innerHTML = position;
+      document.getElementById("pTeam").innerHTML = playerTeam; 
+      document.getElementById("pHeight").innerHTML = height;
+      document.getElementById("pWeight").innerHTML = weight;
+      
 
       await this.pushPlayer(playerFullName)
       await this.getStats(res.data.data[0].id)
@@ -151,6 +167,9 @@ class Search extends Component {
   getStats = (playerId) => {
     axios.get(`https://www.balldontlie.io/api/v1/season_averages?player_ids[]=${playerId}`)
     .then(async res => {
+      if(res.data.data === undefined){
+        alert("This player is either injured or hasn't played")
+      }
       this.pushStats(playerId, res.data.data)
       this.toTable(playerId);
     }).catch(err => {
@@ -207,9 +226,7 @@ class Search extends Component {
     }
 
     pushStats = (id, Avg) => {
-      if(this.state.playerAvg.length === 2){
-        this.setState({playerAvg: []});
-      }
+      this.setState({playerAvg: []});
       this.setState(state=> {
         const playerAvg = state.playerAvg.concat(Avg);
         return{
@@ -219,9 +236,7 @@ class Search extends Component {
     }
 
     pushPlayer = (name) => {
-      if(this.state.playerName.length === 2){
-        this.setState({playerName: []});
-      }
+      this.setState({playerFullName: []});
       this.setState(state => {
         const playerName = state.playerName.concat(name);
         return{
