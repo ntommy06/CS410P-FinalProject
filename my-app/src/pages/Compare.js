@@ -1,7 +1,6 @@
 import React, { Component, useState } from 'react';
 import './Compare.css'
 import axios from 'axios';
-//import update from 'react-addons-update';
 
 class Compare extends Component {
     constructor(props) {
@@ -15,7 +14,7 @@ class Compare extends Component {
 
     
     render() {
-        
+
         return (
             <>
             <div className='myCompare'>
@@ -58,9 +57,9 @@ class Compare extends Component {
                     <tbody>
                          {/* Image */}
                         <tr>
-                            <td> <img id="img1" alt="Player 1"></img>  </td>
+                            <td> <img id="img1" alt="Player 1" width="330.7"></img> </td>
                             <td>Headshot</td>
-                            <td> <img id="img2" alt="Player 2"></img> </td>
+                            <td> <img id="img2" alt="Player 2" width="330.7"></img> </td>
                         </tr>
                         {/* Team Name */}
                         <tr>
