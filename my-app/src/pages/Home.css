@@ -79,7 +79,7 @@
 }
 
 .scheduleTable th, .scheduleTable td {
-    border: 1px solid black;
+    border: none;
     text-align: center;
     width: auto;
     font-weight: bold;
