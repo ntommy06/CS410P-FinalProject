@@ -36,8 +36,8 @@ class Compare extends Component {
                             <td><input id="compare2" name="input" type="search" placeholder="Enter first and last name" /> </td>
                         </tr>
                         <tr>
-                            <td><button id="btn" type="submit" onClick={this.getPlayerId1}>Enter</button></td>
-                            <td><button id="btn" type="submit" onClick={this.getPlayerId2}>Enter</button></td>
+                            <td><button id="compare_btn" type="submit" onClick={this.getPlayerId1}>Enter</button></td>
+                            <td><button id="compare_btn" type="submit" onClick={this.getPlayerId2}>Enter</button></td>
                         </tr>
                     </tbody>
                 </table>
