@@ -1,0 +1,26 @@
+a.footerLink:hover {
+  color: rgb(36, 36, 36);
+}
+
+#footer {
+  padding-top: 12px;
+  padding-bottom: 14px;
+  text-align: center;
+  background-color: #494953;
+  height: 2.5em;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+#footer p {
+  position: relative;
+  color: #ffffff;
+  font-size: x-small;
+}
+
+a.footerLink {
+  padding: 5px 10px 0 10px;
+  color: #edf2f6;
+  text-decoration: none;
+}
