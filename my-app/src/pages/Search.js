@@ -31,7 +31,7 @@ class Search extends Component {
 
         <div className="playerContainer">
           <table className="playerTable" cellSpacing="0">
-            <thead>
+            <thead className="searchThead">
               <tr>
                 <td id="imageId" colSpan="2"><img id="img" alt="Player Not Found" width="330.7px"></img></td>
               </tr>

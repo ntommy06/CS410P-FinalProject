@@ -33,12 +33,12 @@
     border: black solid 1px;
 }
 
-img{
+#imageId img{
     display: flex;
     height: 15rem;
 }
 
-thead{
+.searchThead thead{
     display: flex;
     margin: 0 auto 0 auto;
     flex-direction: column;
@@ -47,7 +47,7 @@ thead{
     font-size: large;
 }
 
-thead td:not(img){
+.searchThead thead td:not(img){
     padding-top: 20px;
 }
 
@@ -60,7 +60,7 @@ thead td:not(img){
     border: black solid 1px;
 }
 
-thead td{
+.playerTable thead td{
     padding: 2.5px .8rem 2.5px 0rem;
 }
 
@@ -68,6 +68,6 @@ thead td{
     border-top: none;
 }
 
-table b{
+.playerTable table b{
     padding-left: 20px;
 }
