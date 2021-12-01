@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "./Search.css";
 import axios from "axios";
-
+import MyChart from "../components/MyChart/MyChart";
+import "./Search.css";
 class Search extends Component {
   constructor(props) {
       super(props);
@@ -11,7 +11,7 @@ class Search extends Component {
           playerAvg: []
       }
   }
-
+  
   render() {
     return (
       <div id="body">
@@ -25,8 +25,6 @@ class Search extends Component {
                 <td><input id = "userInputP" name="input" type="search" placeholder="Enter in player's name"/></td>
                 <td><button id="btn" type="submit" onClick={this.getplayerID}>Submit</button></td>
               </tr>
-              {/* <tr>
-              </tr> */}
             </tbody>
           </table>
         </div>
@@ -125,11 +123,15 @@ class Search extends Component {
                 <td> <span id="turnover1"></span> </td>
               </tr>
             </tbody>
+              <div id='cContainer'>
+                <MyChart/>
+              </div>
           </table>
         </div>
       </div>
     );
   }
+
 
   getplayerID = () => {
     let playerObj = document.getElementById("userInputP").value;
@@ -141,7 +143,6 @@ class Search extends Component {
       let position = res.data.data[0].position;
       let height = res.data.data[0].height_feet + "'" + res.data.data[0].height_feet +'"'
       let weight = res.data.data[0].weight_pounds + " lbs";
-      // let 
 
       this.getProfileImg(1, res.data.data[0].first_name, res.data.data[0].last_name);
 

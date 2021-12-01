@@ -1,9 +1,7 @@
 body {
-  background-color: #ff5656;
-}
-
-a.footerLink:hover {
-  color: rgb(36, 36, 36);
+  /* background-color: #ff5656; */
+  background-color: #F4F4F2;
+  height: 85vh;
 }
 
 .myHome {
@@ -13,29 +11,7 @@ a.footerLink:hover {
   height: "90vh";
 }
 
-#footer {
-  height: 4.5rem;
-  background-color: #494953;
-  margin-top: 2rem;
-  padding-top: 10px;
-  text-align: center;
-}
-
-#footer p {
-  color: #ffffff;
-  font-size: x-small;
-  padding-bottom: 5px;
-  margin-top: 5px;
-}
-
-a.footerLink {
-  padding: 5px 10px 0 10px;
-  color: #edf2f6;
-  text-decoration: none;
-}
-
 #headerPicture {
-  /* .headerContainers { */
   display: flex;
   align-items: center;
   width: 30rem;
@@ -62,11 +38,6 @@ a.footerLink {
   border-radius: 10px;
   background-color: #494953;
   border: black solid 1px;
-}
-
-#foot.container h2 {
-  padding: 20px;
-  margin: 0;
 }
 
 #devs.container h2 {

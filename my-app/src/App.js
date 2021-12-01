@@ -11,6 +11,7 @@ import Home from "./pages/Home";
 import Search from "./pages/Search";
 import Compare from "./pages/Compare";
 import Performance from "./pages/Performance";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/performance" element={<Performance />} />
         <Route path="/compare" element={<Compare />} />
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 }
