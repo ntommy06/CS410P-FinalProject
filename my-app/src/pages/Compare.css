@@ -32,6 +32,13 @@
     width: 97%;
 }
 
+#compare_btn2 {
+    padding: 10px;
+    margin: -4px;
+    width: 97%;
+    display: none;
+}
+
 .search {
     display: flex;
     align-items: center;
