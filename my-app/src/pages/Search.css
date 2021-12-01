@@ -1,7 +1,7 @@
-#body{
+#searchBody{
     font-family: 'Merriweather Sans', sans-serif;
     font-family: 'Ubuntu', sans-serif;
-    height: 85vh;
+    height: 90vh;
 }
 
 #cContainer{
@@ -44,7 +44,6 @@
     flex-direction: column;
     /* color: #EDF2F6; */
     color: #494953;
-    font-size: large;
 }
 
 .searchThead thead td:not(img){
@@ -61,7 +60,8 @@
 }
 
 .playerTable thead td{
-    padding: 2.5px .8rem 2.5px 0rem;
+    padding: 1rem .8rem 2.5px 1rem;
+    font-size: large;
 }
 
 #imageId{
