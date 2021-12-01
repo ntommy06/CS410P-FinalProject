@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./Home.css";
 import axios from "axios";
-import * as NBAIcons from 'react-nba-logos';
 
 class Home extends Component {
   render() {
@@ -165,7 +164,7 @@ class Home extends Component {
       let image = document.createElement('img')
       image.alt = 'logo'
 
-      for(let i = 0; i < logoArray.length - 1; i++) {
+      for(let i = 0; i < logoArray.length; i++) {
         if(data.games[schedIndex].hTeam.triCode === logoArray[i][0]) {
           image.setAttribute('src', logoArray[i][1])
         }
