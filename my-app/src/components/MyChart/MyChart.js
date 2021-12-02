@@ -19,7 +19,8 @@ class MyChart extends Component {
     return (
       <div>
         {/* Catches userInput */}
-        <h1 class="Search-Title"> {this.props.title} </h1>
+        {/* <h1 class="Search-Title"> {this.props.title} </h1> */}
+        {/* <h2>{this.props.num}</h2> */}
         <div id="barChart">
           <Radar
             datasetIdkey="id"
@@ -45,7 +46,7 @@ class MyChart extends Component {
                 {
                   id: 2,
                   label: this.props.title,
-                  // data: [3, 10, 1, 4, 5, 6, 4, 8, 9, 10, 11, 2, 2, 14, 5],
+                  data: this.props.num
                 },
               ],
             }}

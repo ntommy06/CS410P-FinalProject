@@ -1,3 +1,7 @@
+#root {
+    background-color: #F4F4F2;
+}
+
 .NavbarItems {
     background: #494953;
     height: 80px;
@@ -5,10 +9,13 @@
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
+
+    margin: 10px;
+    border-radius: 15px;
 }
 
 .navbar-logo {
-    color: #fff;
+    color: #F4F4F2;
     justify-self: start;
     margin-left: 20px;
     cursor: pointer;
@@ -31,20 +38,20 @@
 }
 
 .nav-links {
-    color: white;
+    color: #F4F4F2;
     text-decoration: none;
     padding: 0.5rem 1rem;
 }
 
 .nav-links:hover {
-    background-color: #72727c;
+    background-color: #BBBFCA;
     border-radius: 4px;
     transition: all 0.2s ease-out;
     margin: 0;
 }
 
 .fa-bars {
-    color: #fff;
+    color: #F4F4F2;
 }
 
 .nav-links-mobile {
@@ -74,7 +81,7 @@
     }
 
     .nav-menu.active {
-        background: #494953;
+        background: #BBBFCA;
         left: 0;
         opacity: 1;
         transition: all 0.5s ease;
@@ -111,7 +118,7 @@
     }
 
     .fa-times {
-        color: #fff;
+        color: #F4F4F2;
         font-size: 2rem;
     }
 

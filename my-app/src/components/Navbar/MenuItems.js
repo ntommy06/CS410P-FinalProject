@@ -9,11 +9,6 @@ export const MenuItems = [
         url: '/search',
         cName: 'nav-links'
     },
-    // {
-    //     title: 'Performance',
-    //     url: '/performance',
-    //     cName: 'nav-links'
-    // },
     {
         title: 'Comparison',
         url: '/compare',

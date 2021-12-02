@@ -10,7 +10,6 @@ import {
 import Home from "./pages/Home";
 import Search from "./pages/Search";
 import Compare from "./pages/Compare";
-import Performance from "./pages/Performance";
 import Footer from "./components/Footer/Footer";
 
 function App() {
@@ -20,7 +19,6 @@ function App() {
       <Routes>
         <Route path="/" exact element={<Home />} />
         <Route path="/search" element={<Search />} />
-        <Route path="/performance" element={<Performance />} />
         <Route path="/compare" element={<Compare />} />
       </Routes>
       <Footer/>
