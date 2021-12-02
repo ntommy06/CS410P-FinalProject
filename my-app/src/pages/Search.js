@@ -127,24 +127,8 @@ class Search extends Component {
               </tr>
             </tbody>
               <div id='cContainer'>
-              <div id="barChart">
-                <Radar set
-                    datasetIdkey='id'
-                    data={{
-                    labels: ['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', '3PTM', '3PTA', '3PT%', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO'],
-                    datasets: [{
-                        id: 2,
-                        label: 'Player Stats',
-                        data: [1]
-                    },],
-                    }}
-                    width={800}
-                    height={400}
-                    options={{
-                        maintainAspectRatio: false
-                    }}
-                />
-  </div>
+              <MyChart />
+              <p num={5}></p>
               </div>
           </table>
         </div>

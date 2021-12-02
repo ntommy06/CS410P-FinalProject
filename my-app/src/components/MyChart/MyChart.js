@@ -18,7 +18,7 @@ class MyChart extends Component {
 
     render(){
 
-        return(
+        return( 
             <div id="barChart">
                 <Radar
                     datasetIdkey='id'
