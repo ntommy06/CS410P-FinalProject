@@ -89,7 +89,7 @@ class Home extends Component {
             ['ORL', 'https://logoeps.com/wp-content/uploads/2012/12/orlando-magic-logo-vector.png'],
             ['PHI', 'https://logoeps.com/wp-content/uploads/2012/11/philadelphia-76ers-logo-vector.png'],
             ['PHX', 'https://logoeps.com/wp-content/uploads/2012/12/phoenix-suns-logo-vector.png'],
-            ['POR', 'https://www.nba.com/blazers/sites/blazers/files/tb_global_rgb_bbgd.png'],
+            ['POR', 'https://logoeps.com/wp-content/uploads/2012/10/portland-trail-blazers-logo-vector.png'],
             ['SAC', 'https://logoeps.com/wp-content/uploads/2012/12/sacramento-kings-logo-vector.png'],
             ['SAS', 'https://logoeps.com/wp-content/uploads/2012/10/san-antonio-spurs-logo-vector.png'],
             ['TOR', 'https://logoeps.com/wp-content/uploads/2012/12/toronto-raptors-logo-vector.png'],
