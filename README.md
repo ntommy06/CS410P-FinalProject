@@ -19,4 +19,12 @@ You will also see any lint errors in the console.
 
 Packages Needed
 
-### `npm install react-nba-logos`
+### `npm install react-scripts --save`
+### `npm install --save react-chartjs-2 chart.js`
+### `npm install --save react-dom`
+### `npm install --save react-router-dom`
+### `npm install --save react-table`
+### `npm install --save react`
+### `npm install --save axios`
+### `npm install --save web-vitals`
+

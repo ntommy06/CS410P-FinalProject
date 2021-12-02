@@ -1,7 +1,7 @@
 #homeBody {
   /* background-color: #ff5656; */
   background-color: #F4F4F2;
-  height: 150vh;
+  height: 110vh;
 }
 
 .myHome {
@@ -73,15 +73,45 @@
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  width: 30%;
-  background-color: #494953;
-  color: white;
+  width: 80%;
+  background-color: #F4F4F2;
+  color: #494953;
+  border-radius: 15px;
+
+  box-shadow: 0 50px 100px rgba(0, 0, 0, 0.15);
 }
 
 .scheduleTable th, .scheduleTable td {
     border: none;
+    border-bottom: thin solid black;
     text-align: center;
     width: auto;
     font-weight: bold;
 }
 
+.scheduleTableBodyRow:hover {
+  background-color: #BBBFCA;
+  color: #F4F4F2;
+}
+
+.daily {
+  text-align: center;
+  bottom: 0px;
+  top: 0px;
+}
+
+.ticketLink:link {
+  color: #1D428A;
+}
+
+.ticketLink:visited {
+  color: #1D428A;
+}
+.ticketLink:active {
+  color: #494953;
+}
+
+.ticketLink {
+  color: #494953;
+  text-decoration: none;
+}

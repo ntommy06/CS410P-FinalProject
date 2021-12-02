@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import axios from "axios";
 import MyChart from "../components/MyChart/MyChart";
 import "./Search.css";
+import {Bar, Chart, Line, Pie, Radar} from 'react-chartjs-2';
+
+
 class Search extends Component {
   constructor(props) {
       super(props);
@@ -162,8 +165,8 @@ class Search extends Component {
       document.getElementById("pWeight").innerHTML = weight;
       
 
-      await this.pushPlayer(playerFullName)
-      await this.getStats(res.data.data[0].id)
+      this.pushPlayer(playerFullName)
+      this.getStats(res.data.data[0].id)
       // console.log(res.data.data[0].full_name);
     }).catch(err => {
       console.log(err)
@@ -185,80 +188,82 @@ class Search extends Component {
         alert("This player is either injured or hasn't played")
       }
       this.pushStats(playerId, res.data.data)
-      this.toTable(playerId);
+      this.toTable();
     }).catch(err => {
       console.log(err);
     })
   }
 
-    toTable = () => {
-      let statArray = [
-        'fgm',
-        'fga',
-        'fg_pct',
-        'ftm',
-        'fta',
-        'ft_pct',
-        'fg3m',
-        'fg3a',
-        'fg3_pct',
-        'pts',
-        'reb',
-        'ast',
-        'stl',
-        'blk',
-        'turnover'
-      ]
+  toTable = () => {
+    let statArray = [
+      'fgm',
+      'fga',
+      'fg_pct',
+      'ftm',
+      'fta',
+      'ft_pct',
+      'fg3m',
+      'fg3a',
+      'fg3_pct',
+      'pts',
+      'reb',
+      'ast',
+      'stl',
+      'blk',
+      'turnover'
+    ]
 
-      let data;
-      data = this.state.playerAvg[0];
 
-      let stats = [
-        data.fgm,
-        data.fga,
-        data.fg_pct,
-        data.ftm,
-        data.fta,
-        data.ft_pct,
-        data.fg3m,
-        data.fg3a,
-        data.fg3_pct,
-        data.pts,
-        data.reb,
-        data.ast,
-        data.stl,
-        data.blk,
-        data.turnover
-      ]
+    let data;
+    data = this.state.playerAvg[0];
 
-      for(let i = 0; i < statArray.length; ++i){
-        let statName = statArray[i];
-        let stat = stats[i];
+    let stats = [
+      data.fgm,
+      data.fga,
+      data.fg_pct,
+      data.ftm,
+      data.fta,
+      data.ft_pct,
+      data.fg3m,
+      data.fg3a,
+      data.fg3_pct,
+      data.pts,
+      data.reb,
+      data.ast,
+      data.stl,
+      data.blk,
+      data.turnover
+    ]
 
-        document.getElementById(statName).innerHTML = stat;
+
+    for(let i = 0; i < statArray.length; ++i){
+      let statName = statArray[i];
+      let stat = stats[i];
+
+      document.getElementById(statName).innerHTML = stat;
+    }
+
+  }
+
+  pushStats = (id, Avg) => {
+    this.setState({playerAvg: []});
+    this.setState(state=> {
+      const playerAvg = state.playerAvg.concat(Avg);
+      return{
+        playerAvg,
       }
-    }
+    })
+  }
 
-    pushStats = (id, Avg) => {
-      this.setState({playerAvg: []});
-      this.setState(state=> {
-        const playerAvg = state.playerAvg.concat(Avg);
-        return{
-          playerAvg,
-        }
-      })
-    }
-
-    pushPlayer = (name) => {
-      this.setState({playerFullName: []});
-      this.setState(state => {
-        const playerName = state.playerName.concat(name);
-        return{
-          playerName,
-        }
-      })
-    }
-
+  pushPlayer = (name) => {
+    this.setState({playerFullName: []});
+    this.setState(state => {
+      const playerName = state.playerName.concat(name);
+      return{
+        playerName,
+      }
+    })
+  }
 
 }
 

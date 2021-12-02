@@ -14,7 +14,7 @@ class Compare extends Component {
 
     
     render() {
-
+        
         return (
             <>
             <div className='myCompare'>
@@ -37,7 +37,7 @@ class Compare extends Component {
                         </tr>
                         <tr>
                             <td><button id="compare_btn" type="submit" onClick={this.getPlayerId1}>Enter</button></td>
-                            <td><button id="compare_btn" type="submit" onClick={this.getPlayerId2}>Enter</button></td>
+                            <td><button id="compare_btn2" type="submit" onClick={this.getPlayerId2}>Enter</button></td>
                         </tr>
                     </tbody>
                 </table>
@@ -151,6 +151,17 @@ class Compare extends Component {
             </>
         )
     }
+    
+    showBtn = (e) => {
+        let btn2fr = document.querySelector('#compare_btn2');
+        btn2fr.style.display = 'block';
+        btn2fr.style.padding = `10px`;
+        btn2fr.style.margin = `5px`;
+        btn2fr.style.width = '97%';
+        
+        e.preventDefault();
+    }
+    
 
     getPlayerId1 = () => {
         let player1 = document.getElementById("compare1").value;
@@ -170,6 +181,8 @@ class Compare extends Component {
 
             await this.pushPlayer(realName)
             await this.getAvgStats(1, res.data.data[0].id)
+
+            this.showBtn(res)
         }).catch(err => {
             console.log(err)
         })
@@ -336,11 +349,28 @@ class Compare extends Component {
         ]
 
         let data;
+
         if(id === 1) {
+            //check if there is data in playerAvg
             data = this.state.playerAvg[0];
         } else {
             data = this.state.playerAvg[1];
         }
+
+        //if the second player gets inputted first
+        // if(id === 2 && this.state.playerAvg[1] === undefined) {
+        //     data = this.state.playerAvg[0]
+        // } else if (id === 1 && this.state.playerAvg[1] === undefined) {
+        //     data = this.state.playerAvg[1]
+        // } else {
+        //     if(id === 1) {
+        //         //check if there is data in playerAvg
+        //         data = this.state.playerAvg[0];
+        //     } else {
+        //         data = this.state.playerAvg[1];
+        //     }
+        // }
+        
 
 
         let stats = [
