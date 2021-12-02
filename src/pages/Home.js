@@ -9,7 +9,7 @@ class Home extends Component {
         <div>
           <div className='daily'>
             <h2>Today's Schedule</h2>
-            <h4 id="getDate"></h4>
+            <h4 id="getDate">Games Today</h4>
           </div>
           <div class="schedule1">
             <p>Games Today</p>
