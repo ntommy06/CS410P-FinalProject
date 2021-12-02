@@ -12,7 +12,6 @@ class Compare extends Component {
         }
     }
 
-    
     render() {
         
         return (
@@ -42,8 +41,6 @@ class Compare extends Component {
                     </tbody>
                 </table>
             </div>
-            {/* SEARCH HOW TO CREATE A TABLE NEXT TO PUT THESE ELEMENTS INTO THE TABLE FOR COMPARISON */}
-
             
             <div className="compareContainer">
                 <table className="myTable">
@@ -168,7 +165,6 @@ class Compare extends Component {
         
         axios.get(`https://www.balldontlie.io/api/v1/players?search=${player1}`)
         .then(async res => {
-            //console.log(res.data.data)
             let realName = res.data.data[0].first_name + " " + res.data.data[0].last_name;
             let team = res.data.data[0].team.full_name;
             let position = res.data.data[0].position;
@@ -357,22 +353,6 @@ class Compare extends Component {
             data = this.state.playerAvg[1];
         }
 
-        //if the second player gets inputted first
-        // if(id === 2 && this.state.playerAvg[1] === undefined) {
-        //     data = this.state.playerAvg[0]
-        // } else if (id === 1 && this.state.playerAvg[1] === undefined) {
-        //     data = this.state.playerAvg[1]
-        // } else {
-        //     if(id === 1) {
-        //         //check if there is data in playerAvg
-        //         data = this.state.playerAvg[0];
-        //     } else {
-        //         data = this.state.playerAvg[1];
-        //     }
-        // }
-        
-
-
         let stats = [
             data.fgm,
             data.fga,
@@ -414,18 +394,12 @@ class Compare extends Component {
 
     pushStats = (id, Avg) => {
         //if populated - clear array
-        //console.log("PUSH STATS: ")
-        //console.log(Avg)
-
-        //console.log(this.state.playerAvg.length)
         
         if(this.state.playerAvg.length === 2) {
 
             //check which index it is
             this.setState({playerAvg: []});
 
-            // console.log("AFTER FULL:")
-            // console.log(this.state.playerAvg)
         }
 
         this.setState(state => {
@@ -435,14 +409,11 @@ class Compare extends Component {
                 playerAvg,
             }
         })
-        //console.log("state.PlayerAvg:")
-        //console.log(this.state.playerAvg)
         
     }
 
     pushPlayer = (name) => {
         //if populated - clear array
-        //console.log(this.state.playerName.length)
         if(this.state.playerName.length === 2) {
             this.setState({playerName: []});
         }
@@ -452,11 +423,9 @@ class Compare extends Component {
 
             return {
                 playerName,
-                //playerAvg: [{}, {}],
             }
         })
         
-        //console.log("PUSH PLAYER:" + this.state.playerName);
     }
 }
 

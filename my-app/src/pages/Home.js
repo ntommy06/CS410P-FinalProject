@@ -202,10 +202,8 @@ class Home extends Component {
     let ul = document.createElement('ul');
     ul.setAttribute('style', 'padding: 0; margin: 0;');
 
-    //let li = document.createElement('li');
     for(let i = 0; i < numGames; i++) {
       let li = document.createElement('li');
-      li.setAttribute('style', 'display: block;')
       li.innerText = data.games[i].hTeam.triCode + ' '+ data.games[i].homeStartTime+ ' ' +data.games[i].vTeam.triCode
       ul.appendChild(li)
     }

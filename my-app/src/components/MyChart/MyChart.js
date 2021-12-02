@@ -19,7 +19,8 @@ class MyChart extends Component {
     return (
       <div>
         {/* Catches userInput */}
-        <h1 class="Search-Title"> {this.props.title} </h1>
+        {/* <h1 class="Search-Title"> {this.props.title} </h1> */}
+        {/* <h2>{this.props.num}</h2> */}
         <div id="barChart">
           <Radar
             datasetIdkey="id"
@@ -45,7 +46,7 @@ class MyChart extends Component {
                 {
                   id: 2,
                   label: this.props.title,
-                  // data: [3, 10, 1, 4, 5, 6, 4, 8, 9, 10, 11, 2, 2, 14, 5],
+                  data: this.props.num
                 },
               ],
             }}
@@ -84,30 +85,6 @@ class MyChart extends Component {
       });
   };
 
-<<<<<<< HEAD
-    render(){
-
-        return( 
-            <div id="barChart">
-                <Radar
-                    datasetIdkey='id'
-                    data={{
-                    labels: ['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', '3PTM', '3PTA', '3PT%', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO'],
-                    datasets: [{
-                        id: 2,
-                        label: 'Player Stats',
-                        data: [3, 10, 1, 4, 5, 6, 4, 8, 9, 10, 11, 2, 2, 1, 5],
-                    },],
-                    }}
-                    width={800}
-                    height={400}
-                    options={{
-                        maintainAspectRatio: false
-                    }}
-                />
-            </div>
-        );
-=======
   getStats = (playerId) => {
     axios
       .get(
@@ -167,7 +144,6 @@ class MyChart extends Component {
       let stat = stats[i];
 
       document.getElementById(statName).innerHTML = stat;
->>>>>>> 5f29e9b803edd4da9916006c4b1b787f9ab2be9b
     }
   };
 

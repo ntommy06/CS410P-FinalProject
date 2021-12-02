@@ -12,7 +12,7 @@ class Search extends Component {
       this.state= {
           playerName: [],
           playerAvg: [],
-          // userSearch: ""
+          playerStat: []
       }
   }
   
@@ -128,15 +128,10 @@ class Search extends Component {
               </tr>
             </tbody>
               <div id='cContainer'>
-<<<<<<< HEAD
-              <MyChart />
-              <p num={5}></p>
-=======
-                <MyChart 
-                  // passing userinput to myChart JS
-                  title = {this.state.userSearch}
-                />
->>>>>>> 5f29e9b803edd4da9916006c4b1b787f9ab2be9b
+              <MyChart title={this.state.playerName}
+                num={this.state.playerStat} 
+              />
+                
               </div>
           </table>
         </div>
@@ -192,7 +187,7 @@ class Search extends Component {
       if(res.data.data === undefined){
         alert("This player is either injured or hasn't played")
       }
-      this.pushStats(playerId, res.data.data)
+      this.pushStats(res.data.data)
       this.toTable();
     }).catch(err => {
       console.log(err);
@@ -240,6 +235,8 @@ class Search extends Component {
       data.turnover
     ]
 
+    this.pushStats2(stats)
+
 
     for(let i = 0; i < statArray.length; ++i){
       let statName = statArray[i];
@@ -250,7 +247,7 @@ class Search extends Component {
 
   }
 
-  pushStats = (id, Avg) => {
+  pushStats = (Avg) => {
     this.setState({playerAvg: []});
     this.setState(state=> {
       const playerAvg = state.playerAvg.concat(Avg);
@@ -260,8 +257,23 @@ class Search extends Component {
     })
   }
 
+  pushStats2 = (stats) => {
+    //console.log(stats[0])
+    const pStat = Object.values(stats)
+    //console.log(typeof pStat)
+
+    this.setState({playerStat: []});
+    this.setState(state=> {
+      const playerStat = state.playerStat.concat(pStat);
+      //console.log(typeof playerStat)
+      return{
+        playerStat,
+      }
+    })
+  }
+
   pushPlayer = (name) => {
-    this.setState({playerFullName: []});
+    this.setState({playerName: []});
     this.setState(state => {
       const playerName = state.playerName.concat(name);
       return{
