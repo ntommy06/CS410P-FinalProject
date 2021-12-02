@@ -8,14 +8,31 @@ class Home extends Component {
       <body id="homeBody">
         <div>
           <div className='daily'>
-            <h2>Daily Schedule</h2>
+            <h2>Today's Schedule</h2>
             <h4 id="getDate"></h4>
           </div>
           <div class="schedule1">
             <p>Games Today</p>
           </div>
-          {/* < NBAIcons.ATL /> */}
-
+          <div id="devHeader">
+            <h2>
+              Meet the Developers!
+            </h2>
+          </div>
+          <div class="cardContainer">
+            <div className="a_card">
+              <img id= "tommysPic"className="cardPics" src="./tommy-pic.jpg" alt="Tommy Nguyen"></img>
+              <div>
+                <h4>Tommy Nguyen</h4>
+              </div>
+            </div>
+            <div className="a_card">
+              <img id="cesarsPic" className="cardPics" src="./cesar-pic.jpg" alt="Cesar Ochoa-Navarro"></img>
+              <div>
+                <h4>Cesar Ochoa-Navarro</h4>
+              </div>
+            </div>
+          </div>
         </div>
       </body>
     );
