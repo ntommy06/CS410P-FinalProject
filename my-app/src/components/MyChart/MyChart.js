@@ -11,6 +11,7 @@ class MyChart extends Component {
     this.state = {
       playerName: [],
       playerAvg: [],
+      // aPlayerName: "",
     };
   }
 
@@ -18,7 +19,7 @@ class MyChart extends Component {
     return (
       <div>
         {/* Catches userInput */}
-        <h1 class="Search-Title">{this.props.title}</h1>
+        <h1 class="Search-Title"> {this.props.title} </h1>
         <div id="barChart">
           <Radar
             datasetIdkey="id"
@@ -43,10 +44,8 @@ class MyChart extends Component {
               datasets: [
                 {
                   id: 2,
-                  label: "Player Stats",
+                  label: this.props.title,
                   // data: [3, 10, 1, 4, 5, 6, 4, 8, 9, 10, 11, 2, 2, 14, 5],
-                  data:this.playerAvg,
-                  // data:[this.props.myArray],
                 },
               ],
             }}
@@ -63,19 +62,22 @@ class MyChart extends Component {
   }
 
   getplayerID = () => {
-    // let playerObj = this.props.title; 
-    let playerObj = document.getElementById("userInputP").value;
-// 
+    let playerObj = document.getElementsByClassName("Seach-Title").value;
+    console.log(playerObj);
+
     axios
       .get(`https://www.balldontlie.io/api/v1/players?search=${playerObj}`)
       .then(async (res) => {
-        let playerFullName =
-          res.data.data[0].first_name + " " + res.data.data[0].last_name;
+        // sets the playser first and last name from api into playerFullName
+        let playerFullName = res.data.data[0].first_name + " " + res.data.data[0].last_name;
 
-        document.getElementById("pName").innerHTML = playerFullName;
 
-        await this.pushPlayer(playerFullName);
-        await this.getStats(res.data.data[0].id);
+        // this.setState({aPlayerName:playerFullName})
+        //Need to set playerFullName to the label
+        // document.getElementById("pName").innerHTML = playerFullName;
+
+        this.pushPlayer(playerFullName);
+        this.getStats(res.data.data[0].id);
       })
       .catch((err) => {
         console.log(err);

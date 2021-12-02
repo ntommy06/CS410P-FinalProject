@@ -9,7 +9,7 @@ class Search extends Component {
       this.state= {
           playerName: [],
           playerAvg: [],
-          userSearch: ""
+          // userSearch: ""
       }
   }
   
@@ -126,6 +126,7 @@ class Search extends Component {
             </tbody>
               <div id='cContainer'>
                 <MyChart 
+                  // passing userinput to myChart JS
                   title = {this.state.userSearch}
                 />
               </div>
@@ -137,10 +138,13 @@ class Search extends Component {
 
 
   getplayerID = () => {
+    // gets the userInput and puts in playerObj
     let playerObj = document.getElementById("userInputP").value;
+
+    // to pass onto the MyChartjs
     this.setState({userSearch:document.getElementById("userInputP").value})
 
-
+    // compares players name from api to playerObj(userInput)
     axios.get(`https://www.balldontlie.io/api/v1/players?search=${playerObj}`)
     .then(async res => {
       let playerFullName = res.data.data[0].first_name + " " + res.data.data[0].last_name;
