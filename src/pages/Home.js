@@ -128,7 +128,7 @@ class Home extends Component {
       let schedHeader = document.createElement('th')
       schedHeader.innerText = header;
 
-      if(header != 'Start Time')
+      if(header !== 'Start Time')
         schedHeader.colSpan = 2
 
       scheduleTableHeadRow.append(schedHeader)
