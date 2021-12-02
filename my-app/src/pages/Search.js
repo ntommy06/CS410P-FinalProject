@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import axios from "axios";
 import MyChart from "../components/MyChart/MyChart";
 import "./Search.css";
+import {Bar, Chart, Line, Pie, Radar} from 'react-chartjs-2';
+
+
 class Search extends Component {
   constructor(props) {
       super(props);
@@ -64,67 +67,84 @@ class Search extends Component {
               </tr>
               <tr>
                 <td>FGM:</td>
-                <td><span id="fgm1"></span></td>
+                <td><span id="fgm"></span></td>
               </tr>
               <tr>
                 <td>FGA:</td>
-                <td> <span id="fga1"></span> </td>
+                <td> <span id="fga"></span> </td>
               </tr>
               <tr>
                 <td>FG%:</td>
-                <td> <span id="fg_pct1"></span> </td>
+                <td> <span id="fg_pct"></span> </td>
               </tr>
               <tr>
                 <td>FTM:</td>
-                <td> <span id="ftm1"></span> </td>
+                <td> <span id="ftm"></span> </td>
               </tr>
               <tr>
                 <td>FTA:</td>
-                <td> <span id="fta1"></span> </td>
+                <td> <span id="fta"></span> </td>
               </tr>
               <tr>
                 <td>FT%:</td>
-                <td> <span id="ft_pct1"></span> </td>
+                <td> <span id="ft_pct"></span> </td>
               </tr>
               <tr>
                 <td>3PTM:</td>
-                <td> <span id="fg3m1"></span> </td>
+                <td> <span id="fg3m"></span> </td>
               </tr>
               <tr>
                 <td>3PTA:</td>
-                <td> <span id="fg3a1"></span> </td>
+                <td> <span id="fg3a"></span> </td>
               </tr>
               <tr>
                 <td>3PT%:</td>
-                <td> <span id="fg3_pct1"></span> </td>
+                <td> <span id="fg3_pct"></span> </td>
               </tr>
               <tr>
                 <td>PTS:</td>
-                <td> <span id="pts1"></span> </td>
+                <td> <span id="pts"></span> </td>
               </tr>
               <tr>
                 <td>REB:</td>
-                <td> <span id="reb1"></span> </td>
+                <td> <span id="reb"></span> </td>
               </tr>
               <tr>
                 <td>AST:</td>
-                <td> <span id="ast1"></span> </td>
+                <td> <span id="ast"></span> </td>
               </tr>
               <tr>
                 <td>ST:</td>
-                <td> <span id="stl1"></span> </td>
+                <td> <span id="stl"></span> </td>
               </tr>
               <tr>
                 <td>BLK:</td>
-                <td> <span id="blk1"></span> </td>
+                <td> <span id="blk"></span> </td>
               </tr>
               <tr>
                 <td>TO:</td>
-                <td> <span id="turnover1"></span> </td>
+                <td> <span id="turnover"></span> </td>
               </tr>
             </tbody>
               <div id='cContainer'>
-                <MyChart/>
+              <div id="barChart">
+                <Radar set
+                    datasetIdkey='id'
+                    data={{
+                    labels: ['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', '3PTM', '3PTA', '3PT%', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO'],
+                    datasets: [{
+                        id: 2,
+                        label: 'Player Stats',
+                        data: [1]
+                    },],
+                    }}
+                    width={800}
+                    height={400}
+                    options={{
+                        maintainAspectRatio: false
+                    }}
+                />
+  </div>
               </div>
           </table>
         </div>
@@ -153,8 +173,8 @@ class Search extends Component {
       document.getElementById("pWeight").innerHTML = weight;
       
 
-      await this.pushPlayer(playerFullName)
-      await this.getStats(res.data.data[0].id)
+      this.pushPlayer(playerFullName)
+      this.getStats(res.data.data[0].id)
       // console.log(res.data.data[0].full_name);
     }).catch(err => {
       console.log(err)
@@ -176,79 +196,81 @@ class Search extends Component {
         alert("This player is either injured or hasn't played")
       }
       this.pushStats(playerId, res.data.data)
-      this.toTable(playerId);
+      this.toTable();
     }).catch(err => {
       console.log(err);
     })
   }
 
-    toTable = (playerId) => {
-      let statArray = [
-        'fgm',
-        'fga',
-        'fg_pct',
-        'ftm',
-        'fta',
-        'ft_pct',
-        'fg3m',
-        'fg3a',
-        'fg3_pct',
-        'pts',
-        'reb',
-        'ast',
-        'stl',
-        'blk',
-        'turnover'
-      ]
+  toTable = () => {
+    let statArray = [
+      'fgm',
+      'fga',
+      'fg_pct',
+      'ftm',
+      'fta',
+      'ft_pct',
+      'fg3m',
+      'fg3a',
+      'fg3_pct',
+      'pts',
+      'reb',
+      'ast',
+      'stl',
+      'blk',
+      'turnover'
+    ]
 
-      let data;
-      data = this.state.playerAvg[0];
+    let data;
+    data = this.state.playerAvg[0];
 
-      let stats = [
-        data.fgm,
-        data.fga,
-        data.fg_pct,
-        data.ftm,
-        data.fta,
-        data.ft_pct,
-        data.fg3m,
-        data.fg3a,
-        data.fg3_pct,
-        data.pts,
-        data.reb,
-        data.ast,
-        data.stl,
-        data.blk,
-        data.turnover
-      ]
+    let stats = [
+      data.fgm,
+      data.fga,
+      data.fg_pct,
+      data.ftm,
+      data.fta,
+      data.ft_pct,
+      data.fg3m,
+      data.fg3a,
+      data.fg3_pct,
+      data.pts,
+      data.reb,
+      data.ast,
+      data.stl,
+      data.blk,
+      data.turnover
+    ]
 
-      for(let i = 0; i < statArray.length; ++i){
-        let statName = statArray[i];
-        let stat = stats[i];
 
-        document.getElementById(statName+"1").innerHTML = stat;
+    for(let i = 0; i < statArray.length; ++i){
+      let statName = statArray[i];
+      let stat = stats[i];
+
+      document.getElementById(statName).innerHTML = stat;
+    }
+  }
+
+  pushStats = (id, Avg) => {
+    this.setState({playerAvg: []});
+    this.setState(state=> {
+      const playerAvg = state.playerAvg.concat(Avg);
+      return{
+        playerAvg,
       }
-    }
+    })
+  }
 
-    pushStats = (id, Avg) => {
-      this.setState({playerAvg: []});
-      this.setState(state=> {
-        const playerAvg = state.playerAvg.concat(Avg);
-        return{
-          playerAvg,
-        }
-      })
-    }
+  pushPlayer = (name) => {
+    this.setState({playerFullName: []});
+    this.setState(state => {
+      const playerName = state.playerName.concat(name);
+      return{
+        playerName,
+      }
+    })
+  }
 
-    pushPlayer = (name) => {
-      this.setState({playerFullName: []});
-      this.setState(state => {
-        const playerName = state.playerName.concat(name);
-        return{
-          playerName,
-        }
-      })
-    }
 }
 
 export default Search;
