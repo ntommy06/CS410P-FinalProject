@@ -66,6 +66,10 @@
   padding-bottom: 2rem;
 }
 
+.scheduleTable thead {
+  font-size: larger;
+}
+
 table.scheduleTable {
   /* border: thin solid black; */
   border-collapse: collapse;
@@ -84,7 +88,6 @@ table.scheduleTable {
 table.scheduleTable th {
     border: none;
     border-top: none;
-    text-align: center;
     width: auto;
     font-weight: bold;
 }
@@ -92,7 +95,6 @@ table.scheduleTable th {
 table.scheduleTable td {
     border: none;
     border-top: thin solid gray;
-    text-align: center;
     width: auto;
     font-weight: bold;
 }
