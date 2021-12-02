@@ -11,7 +11,8 @@ class Search extends Component {
 
       this.state= {
           playerName: [],
-          playerAvg: []
+          playerAvg: [],
+          // userSearch: ""
       }
   }
   
@@ -127,24 +128,10 @@ class Search extends Component {
               </tr>
             </tbody>
               <div id='cContainer'>
-              <div id="barChart">
-                <Radar set
-                    datasetIdkey='id'
-                    data={{
-                    labels: ['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', '3PTM', '3PTA', '3PT%', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO'],
-                    datasets: [{
-                        id: 2,
-                        label: 'Player Stats',
-                        data: [1]
-                    },],
-                    }}
-                    width={800}
-                    height={400}
-                    options={{
-                        maintainAspectRatio: false
-                    }}
+                <MyChart 
+                  // passing userinput to myChart JS
+                  title = {this.state.userSearch}
                 />
-  </div>
               </div>
           </table>
         </div>
@@ -154,8 +141,13 @@ class Search extends Component {
 
 
   getplayerID = () => {
+    // gets the userInput and puts in playerObj
     let playerObj = document.getElementById("userInputP").value;
 
+    // to pass onto the MyChartjs
+    this.setState({userSearch:document.getElementById("userInputP").value})
+
+    // compares players name from api to playerObj(userInput)
     axios.get(`https://www.balldontlie.io/api/v1/players?search=${playerObj}`)
     .then(async res => {
       let playerFullName = res.data.data[0].first_name + " " + res.data.data[0].last_name;
@@ -221,6 +213,7 @@ class Search extends Component {
       'turnover'
     ]
 
+
     let data;
     data = this.state.playerAvg[0];
 
@@ -249,6 +242,7 @@ class Search extends Component {
 
       document.getElementById(statName).innerHTML = stat;
     }
+
   }
 
   pushStats = (id, Avg) => {
