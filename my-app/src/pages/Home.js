@@ -8,14 +8,31 @@ class Home extends Component {
       <body id="homeBody">
         <div>
           <div className='daily'>
-            <h2>Daily Schedule</h2>
+            <h2>Today's Schedule</h2>
             <h4 id="getDate"></h4>
           </div>
           <div class="schedule1">
             <p>Games Today</p>
           </div>
-          {/* < NBAIcons.ATL /> */}
-
+          <div id="devHeader">
+            <h2>
+              Meet the Developers!
+            </h2>
+          </div>
+          <div class="cardContainer">
+            <div className="a_card">
+              <img id= "tommysPic"className="cardPics" src="./tommy-pic.jpg" alt="Tommy Nguyen"></img>
+              <div>
+                <h4>Tommy Nguyen</h4>
+              </div>
+            </div>
+            <div className="a_card">
+              <img id="cesarsPic" className="cardPics" src="./cesar-pic.jpg" alt="Cesar Ochoa-Navarro"></img>
+              <div>
+                <h4>Cesar Ochoa-Navarro</h4>
+              </div>
+            </div>
+          </div>
         </div>
       </body>
     );
@@ -72,7 +89,7 @@ class Home extends Component {
             ['ORL', 'https://logoeps.com/wp-content/uploads/2012/12/orlando-magic-logo-vector.png'],
             ['PHI', 'https://logoeps.com/wp-content/uploads/2012/11/philadelphia-76ers-logo-vector.png'],
             ['PHX', 'https://logoeps.com/wp-content/uploads/2012/12/phoenix-suns-logo-vector.png'],
-            ['POR', 'https://www.nba.com/blazers/sites/blazers/files/tb_global_rgb_bbgd.png'],
+            ['POR', 'https://logoeps.com/wp-content/uploads/2012/10/portland-trail-blazers-logo-vector.png'],
             ['SAC', 'https://logoeps.com/wp-content/uploads/2012/12/sacramento-kings-logo-vector.png'],
             ['SAS', 'https://logoeps.com/wp-content/uploads/2012/10/san-antonio-spurs-logo-vector.png'],
             ['TOR', 'https://logoeps.com/wp-content/uploads/2012/12/toronto-raptors-logo-vector.png'],

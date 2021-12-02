@@ -1,11 +1,8 @@
 #searchBody{
-    font-family: 'Merriweather Sans', sans-serif;
-    font-family: 'Ubuntu', sans-serif;
     height: 90vh;
 }
 
 #cContainer{
-    /* width: %; */
     margin: 10px auto 0 auto;
     position: relative;
 }
@@ -25,12 +22,13 @@
     display: flex;
     position: relative;
     justify-content: center;
-    /* background-color: #494953; */
-    background-color: #E8E8E8;
+    border-collapse: collapse;
+    background-color: #f3f3f3e0;
     margin: 10px auto 0 auto;
     height: auto;
     width: 85rem;
-    border: black solid 1px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgb(0 0 0 / 35%);
 }
 
 #imageId img{
@@ -39,28 +37,25 @@
 }
 
 .searchThead thead{
-    display: flex;
+    position: relative;
     margin: 0 auto 0 auto;
-    flex-direction: column;
-    /* color: #EDF2F6; */
-    color: #494953;
 }
 
-.searchThead thead td:not(img){
-    padding-top: 20px;
+.searchThead thead tr:not(img){
+    padding-top: 4px;
+    padding: 15px 15px;
 }
 
 #statBody td{
-    background-color: #EDF2F6;
+    background-color: white;
     padding: 8px;
 }
 
 .playerTable > tbody{
-    border: black solid 1px;
 }
 
 .playerTable thead td{
-    padding: 1rem .8rem 2.5px 1rem;
+    padding: 1.5rem .8rem 2.5px 1rem;
     font-size: large;
 }
 

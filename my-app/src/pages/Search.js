@@ -164,7 +164,6 @@ class Search extends Component {
       document.getElementById("pHeight").innerHTML = height;
       document.getElementById("pWeight").innerHTML = weight;
       
-
       this.pushPlayer(playerFullName)
       this.getStats(res.data.data[0].id)
       // console.log(res.data.data[0].full_name);

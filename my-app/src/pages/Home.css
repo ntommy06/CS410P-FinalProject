@@ -1,8 +1,13 @@
+/* *{
+    font-family: 'Merriweather Sans', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+} */
+
 #homeBody {
-  /* background-color: #ff5656; */
   background-color: #F4F4F2;
-  height: 110vh;
+  height: 150vh;
 }
+
 
 .myHome {
   display: "flex";
@@ -71,7 +76,6 @@
 }
 
 table.scheduleTable {
-  /* border: thin solid black; */
   border-collapse: collapse;
   position: relative;
   margin-left: auto;
@@ -81,7 +85,6 @@ table.scheduleTable {
   background-color: #F4F4F2;
   color: #494953;
   border-radius: 15px;
-
   box-shadow: 0 50px 100px rgba(0, 0, 0, 0.35);
 }
 
@@ -101,7 +104,7 @@ table.scheduleTable td {
 
 .scheduleTableBodyRow:hover {
   background-color: #BBBFCA;
-  color: #F4F4F2;
+  color: #808069;
 }
 
 .daily {
@@ -124,4 +127,52 @@ table.scheduleTable td {
 .ticketLink {
   color: #494953;
   text-decoration: none;
+}
+
+#devHeader{
+  text-align: center;
+  margin: 10rem auto 0 auto;
+}
+
+.cardContainer{
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  height: 35rem;
+  width: 60%;
+  margin: 1rem auto 0 auto;
+}
+
+.a_card{
+  display: flex;
+  position: relative;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 25rem; 
+  width: 20rem;
+  margin-top: 5rem;
+  background-color: #BBBFCA;
+  box-shadow: 0 50px 100px rgba(0, 0, 0, 0.35);
+  border-radius: 20px;
+}
+
+.a_card h4{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  clear: both;
+}
+
+#tommysPic{
+  float: right;
+  height: 200px;
+  border-radius: 50%;
+  margin: 3rem auto 0 auto;
+}
+
+#cesarsPic{
+  float: right;
+  border-radius: 50%;
+  height: 200px;
+  margin: 3rem auto 0 auto;
 }

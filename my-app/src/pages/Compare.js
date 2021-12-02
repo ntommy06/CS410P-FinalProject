@@ -17,7 +17,7 @@ class Compare extends Component {
         return (
             <>
             <div className='myCompare'>
-                <h1>Search up two players you would like to compare</h1>
+                <h1>Compare Two Players</h1>
             </div>
             <div>
                 <table className="mainTable">

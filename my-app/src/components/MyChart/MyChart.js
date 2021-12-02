@@ -51,7 +51,7 @@ class MyChart extends Component {
               ],
             }}
             width={800}
-            height={400}
+            height={500}
             options={{
               responsive: true,
               maintainAspectRatio: false,
