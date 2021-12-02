@@ -8,7 +8,8 @@ class Search extends Component {
 
       this.state= {
           playerName: [],
-          playerAvg: []
+          playerAvg: [],
+          userSearch: ""
       }
   }
   
@@ -64,67 +65,69 @@ class Search extends Component {
               </tr>
               <tr>
                 <td>FGM:</td>
-                <td><span id="fgm1"></span></td>
+                <td><span id="fgm"></span></td>
               </tr>
               <tr>
                 <td>FGA:</td>
-                <td> <span id="fga1"></span> </td>
+                <td> <span id="fga"></span> </td>
               </tr>
               <tr>
                 <td>FG%:</td>
-                <td> <span id="fg_pct1"></span> </td>
+                <td> <span id="fg_pct"></span> </td>
               </tr>
               <tr>
                 <td>FTM:</td>
-                <td> <span id="ftm1"></span> </td>
+                <td> <span id="ftm"></span> </td>
               </tr>
               <tr>
                 <td>FTA:</td>
-                <td> <span id="fta1"></span> </td>
+                <td> <span id="fta"></span> </td>
               </tr>
               <tr>
                 <td>FT%:</td>
-                <td> <span id="ft_pct1"></span> </td>
+                <td> <span id="ft_pct"></span> </td>
               </tr>
               <tr>
                 <td>3PTM:</td>
-                <td> <span id="fg3m1"></span> </td>
+                <td> <span id="fg3m"></span> </td>
               </tr>
               <tr>
                 <td>3PTA:</td>
-                <td> <span id="fg3a1"></span> </td>
+                <td> <span id="fg3a"></span> </td>
               </tr>
               <tr>
                 <td>3PT%:</td>
-                <td> <span id="fg3_pct1"></span> </td>
+                <td> <span id="fg3_pct"></span> </td>
               </tr>
               <tr>
                 <td>PTS:</td>
-                <td> <span id="pts1"></span> </td>
+                <td> <span id="pts"></span> </td>
               </tr>
               <tr>
                 <td>REB:</td>
-                <td> <span id="reb1"></span> </td>
+                <td> <span id="reb"></span> </td>
               </tr>
               <tr>
                 <td>AST:</td>
-                <td> <span id="ast1"></span> </td>
+                <td> <span id="ast"></span> </td>
               </tr>
               <tr>
                 <td>ST:</td>
-                <td> <span id="stl1"></span> </td>
+                <td> <span id="stl"></span> </td>
               </tr>
               <tr>
                 <td>BLK:</td>
-                <td> <span id="blk1"></span> </td>
+                <td> <span id="blk"></span> </td>
               </tr>
               <tr>
                 <td>TO:</td>
-                <td> <span id="turnover1"></span> </td>
+                <td> <span id="turnover"></span> </td>
               </tr>
             </tbody>
               <div id='cContainer'>
-                <MyChart/>
+                <MyChart 
+                  title = {this.state.userSearch}
+                />
               </div>
           </table>
         </div>
@@ -135,6 +138,8 @@ class Search extends Component {
 
   getplayerID = () => {
     let playerObj = document.getElementById("userInputP").value;
+    this.setState({userSearch:document.getElementById("userInputP").value})
+
 
     axios.get(`https://www.balldontlie.io/api/v1/players?search=${playerObj}`)
     .then(async res => {
@@ -182,7 +187,7 @@ class Search extends Component {
     })
   }
 
-    toTable = (playerId) => {
+    toTable = () => {
       let statArray = [
         'fgm',
         'fga',
@@ -226,7 +231,7 @@ class Search extends Component {
         let statName = statArray[i];
         let stat = stats[i];
 
-        document.getElementById(statName+"1").innerHTML = stat;
+        document.getElementById(statName).innerHTML = stat;
       }
     }
 
@@ -249,6 +254,8 @@ class Search extends Component {
         }
       })
     }
+
+
 }
 
 export default Search;
