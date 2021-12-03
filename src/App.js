@@ -2,7 +2,7 @@ import "./App.css";
 import React from "react";
 import Navbar from "./components/Navbar/Navbar";
 import {
-  BrowserRouter as Router,
+  // BrowserRouter as Router,
   Routes,
   Route,
   BrowserRouter,
