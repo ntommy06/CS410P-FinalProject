@@ -15,23 +15,31 @@ class Home extends Component {
             <p>Games Today</p>
           </div>
           <div id="devHeader">
-            <h2>
-              Meet the Developers!
-            </h2>
           </div>
           <div class="cardContainer">
-            <div className="a_card">
-              <img id= "tommysPic"className="cardPics" src="./tommy-pic.jpg" alt="Tommy Nguyen"></img>
-              <div>
-                <h4>Tommy Nguyen</h4>
-              </div>
-            </div>
-            <div className="a_card">
-              <img id="cesarsPic" className="cardPics" src="./cesar-pic.jpg" alt="Cesar Ochoa-Navarro"></img>
-              <div>
-                <h4>Cesar Ochoa-Navarro</h4>
-              </div>
-            </div>
+            <table className="devTable" cellSpacing = "50">
+              <h2>
+                Meet the Developers!
+              </h2>
+              <tr>
+                <td>
+                  <div className="a_card">
+                    <a href="https://www.linkedin.com/in/tommynguyen12/"><img id= "tommysPic"className="cardPics" src="./tommy-pic.jpg" alt="Tommy Nguyen"></img></a>
+                    <div>
+                      <h4>Tommy Nguyen</h4>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div className="a_card">
+                    <a href="https://www.linkedin.com/in/cesaron/"><img id="cesarsPic" className="cardPics" src="./cesar-pic.jpg" alt="Cesar Ochoa-Navarro"></img></a>
+                    <div>
+                      <h4>Cesar Ochoa-Navarro</h4>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </table>
           </div>
         </div>
       </body>
