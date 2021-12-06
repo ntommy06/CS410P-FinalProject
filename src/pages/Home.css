@@ -1,8 +1,7 @@
 #homeBody {
-  background-color: #F4F4F2;
-  height: 150vh;
+  background-color: #f4f4f2;
+  height: 180vh;
 }
-
 
 .myHome {
   display: "flex";
@@ -77,28 +76,28 @@ table.scheduleTable {
   margin-right: auto;
   text-align: center;
   width: 80%;
-  background-color: #F4F4F2;
+  background-color: #f4f4f2;
   color: #494953;
   border-radius: 15px;
   box-shadow: 0 50px 100px rgba(0, 0, 0, 0.35);
 }
 
 table.scheduleTable th {
-    border: none;
-    border-top: none;
-    width: auto;
-    font-weight: bold;
+  border: none;
+  border-top: none;
+  width: auto;
+  font-weight: bold;
 }
 
 table.scheduleTable td {
-    border: none;
-    border-top: thin solid gray;
-    width: auto;
-    font-weight: bold;
+  border: none;
+  border-top: thin solid gray;
+  width: auto;
+  font-weight: bold;
 }
 
 .scheduleTableBodyRow:hover {
-  background-color: #BBBFCA;
+  background-color: #bbbfca;
   color: #808069;
 }
 
@@ -109,11 +108,11 @@ table.scheduleTable td {
 }
 
 .ticketLink:link {
-  color: #1D428A;
+  color: #1d428a;
 }
 
 .ticketLink:visited {
-  color: #1D428A;
+  color: #1d428a;
 }
 .ticketLink:active {
   color: #494953;
@@ -124,12 +123,12 @@ table.scheduleTable td {
   text-decoration: none;
 }
 
-#devHeader{
+#devHeader {
   text-align: center;
   margin: 10rem auto 0 auto;
 }
 
-.cardContainer{
+.cardContainer {
   display: flex;
   justify-content: space-around;
   height: 39rem;
@@ -137,19 +136,19 @@ table.scheduleTable td {
   margin: 1rem auto 0 auto;
 }
 
-.a_card{
+.a_card {
   display: flex;
   position: relative;
   justify-content: center;
   flex-wrap: wrap;
-  height: 25rem; 
+  height: 25rem;
   width: 20rem;
   background-color: #edf2f6;
   box-shadow: 0 50px 100px rgba(0, 0, 0, 0.35);
   border-radius: 20px;
 }
 
-.devTable{
+.devTable {
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -157,15 +156,15 @@ table.scheduleTable td {
   clear: both;
 }
 
-.a_card > a img{
+.a_card > a img {
   float: right;
   height: 200px;
   border-radius: 50%;
   margin: 3rem auto 0 auto;
 }
 
-.a_card:hover:not(a img.cardPics){
-  opacity: .6;
+.a_card:hover:not(a img.cardPics) {
+  opacity: 0.6;
   transition: 0.3s;
-  background-color: #BBBFCA;
+  background-color: #bbbfca;
 }
